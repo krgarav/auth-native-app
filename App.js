@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 import {
   Button,
   ImageBackground,
@@ -10,17 +11,11 @@ import {
 } from "react-native";
 
 export default function App() {
+  const [authState, setAuthState] = useState(false);
   return (
     <View style={styles.container}>
-      {/* <ImageBackground
-        source={{
-          uri: "https://media.istockphoto.com/id/590050726/photo/singapore-glowing-at-night.jpg?s=612x612&w=0&k=20&c=43tSsy1yC0iOAGL3ZVq3-nl84KnmWTnHGI5mwQtp8zo=",
-        }}
-        style={styles.background}
-      > */}
-
       <SafeAreaView style={styles.area}>
-        <Text style={styles.text}>Login!</Text>
+        <Text style={styles.text}>{authState ? "Sign up" : "Login"}</Text>
 
         <TextInput
           style={styles.input}
@@ -37,15 +32,19 @@ export default function App() {
         />
       </SafeAreaView>
       <Button
-        title="Log in"
+        style={styles.btn}
+        title={authState ? "Sign up" : "Login"}
         color="purple"
-        onPress={() => alert("Button Clicked")}
+        onPress={() => {}}
       />
       <Text></Text>
       <Button
-        title="Create new Account"
+        style={styles.btn}
+        title={authState ? "Already have account , Login" : "Create new Account"}
         color="blue"
-        onPress={() => alert("Button Clicked")}
+        onPress={() => {
+          setAuthState((prev) => !prev);
+        }}
       />
 
       {/* </ImageBackground> */}
@@ -81,9 +80,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
-  area:{
+  area: {
     width: "80%",
-    
-
-  }
+  },
 });
