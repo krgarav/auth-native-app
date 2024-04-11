@@ -8,20 +8,16 @@ import {
   TextInput,
   View,
 } from "react-native";
+import TextComp from "./component/Login";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* <ImageBackground
-        source={{
-          uri: "https://media.istockphoto.com/id/590050726/photo/singapore-glowing-at-night.jpg?s=612x612&w=0&k=20&c=43tSsy1yC0iOAGL3ZVq3-nl84KnmWTnHGI5mwQtp8zo=",
-        }}
-        style={styles.background}
-      > */}
+
 
       <SafeAreaView style={styles.area}>
-        <Text style={styles.text}>Login!</Text>
-
+        {/* <Text style={styles.text}>Login!</Text> */}
+        <TextComp />
         <TextInput
           style={styles.input}
           // onChangeText={onChangeText}
@@ -81,9 +77,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
-  area:{
+  area: {
     width: "80%",
-    
+
 
   }
 });
